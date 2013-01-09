@@ -4,4 +4,8 @@
 
 /* IE7 only */
 
-*+html .wrap_input {}
+*+html .btn,
+*+html .btn i,
+*+html .soc {
+    display: inline;
+}
