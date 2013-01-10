@@ -55,17 +55,18 @@ input[type='submit']::-moz-focus-inner{
 }
 * {
 	-webkit-text-size-adjust: none;
+    //border: 1px solid #000 !important;
 }
 /* ------------------------------------- //END Reset css --------------------------------------- */
 body{
     padding: 0 10px;
-    min-width: 940px;
+    min-width: 320px;
     color: #fff;
     background: #ee1b2f;
     font: normal 14px Arial, sans-serif;
 }
 .l-wrapper {
-    width: 940px;
+    max-width: 940px;
     margin: 0 auto -80px;
 	position: relative;
 	min-height: 100%;
@@ -78,7 +79,6 @@ body{
 }
 .wrapper {
     overflow: hidden;
-    margin-right: -20px;
 }
 .wrap {
     @include clr();
@@ -100,6 +100,9 @@ body{
     padding-top: 10px;
     height: 180px;
     overflow: hidden;
+    @include respond-to(pda) {
+        height: 100px;
+    }
 }
 .header__soc {
     float: right;
@@ -117,6 +120,7 @@ body{
 
 /* ---------------------------------------------- main ------------------------------------------ */
 .main { 
+    margin-bottom: 20px;
     p {
         margin-bottom: 30px;
         line-height: 18px;
@@ -125,17 +129,32 @@ body{
 .left-col {
     float: left;
     padding-top: 55px;
-    width: 550px;
+    width: 58%;
+    @include respond-to(pda) {
+        float: none;
+        width: 100%;
+        margin-bottom: 20px;
+        overflow: hidden;
+    }
 }
 .right-col {
-    width: 390px;
+    width: 41%; 
     float: right;
+    @include respond-to(pda) {
+        float: none;
+        margin: 0 auto 20px;
+    }
+    img {
+        @include respond-to(med) {
+            width: 100%;
+        }
+    }
 }
 .btn {
     display: inline-block;
-    margin-right: 15px;
+    margin-left: 2%;
     height: 55px;
-    width: 170px;
+    width: 31.2%;
     line-height: 55px;
     color: #000;
     font-size: 25px;
@@ -149,6 +168,12 @@ body{
     @include border-radius(7px);
     @include box-shadow(inset 0 1px 0 rgba(0,0,0,0.2));
     @include background-image(linear-gradient(top, #e9c280 0%, #f1ce94 50%, #e0b56c 50%, #e0b56c 100%));
+    &:first-child {
+        margin-left: 0;
+    }
+    @include respond-to(mob-lan) {
+        font-size: 20px;
+    }
     i {
         display: inline-block;
         vertical-align: middle;
@@ -162,24 +187,37 @@ body{
 .footer {
     position: relative;
     margin: 0 auto;
-    width: 940px;
+    max-width: 940px;
     padding-bottom: 35px;
     overflow: hidden;
     font-size: 12px;
+    @include respond-to(mob-lan) {
+        padding-bottom: 5px;
+    }
 }
 .footer__col {
     float: left;
-    width: 240px;
+    width: 25.5%;
+    @include respond-to(pda) {
+        width: 32%;
+    }
 }
 .footer__soc {
     float: right;
+    width: 23.5%;
+    @include respond-to(pda) {
+        float: none;
+        clear: both;
+        padding-top: 15px;
+        width: 100%;
+        text-align: center;
+    }
 }
 .soc {
     display: inline-block;
-    margin-left: 12px;
+    margin-left: 3.5%;
 }
 .soc_fb {@include sized-sprite($icons, fb);}
 .soc_gp {@include sized-sprite($icons, gp);}
 .soc_tw {@include sized-sprite($icons, tw);}
 .soc_email {@include sized-sprite($icons, email);}
-/* ------------------------------------------- //END footer -------------------------------------- */
